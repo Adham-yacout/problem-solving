@@ -1,0 +1,25 @@
+class Solution {
+public:
+    int checker(long x,long temp)
+    {
+        if(x==0)
+        return temp;
+        temp=(temp*10)+(x%10);
+        return checker(x/10,temp);
+    }
+    bool isPalindrome(long x) {
+        if(x<0)
+            {
+            return false;
+            }
+        int reversed=checker(x,0);
+        if(reversed==x)
+            {
+                return true;
+            }
+        else
+        {
+            return false;
+        }
+    }
+};
