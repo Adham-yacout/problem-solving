@@ -1,0 +1,34 @@
+class Solution {
+public:
+    bool isValid(string s) {
+        stack<char> checker;
+        for(int i=0;i<s.length();i++)
+        {
+            if(checker.empty())
+            {
+                checker.push(s[i]);
+
+            }
+           else if((checker.top()=='(' && s[i]==')')
+            || (checker.top()=='[' && s[i]==']')
+            || (checker.top()=='{' && s[i]=='}')
+            )
+                {
+                    checker.pop();
+                }
+            else{
+                checker.push(s[i]);
+            }
+
+
+
+        }
+        if(checker.empty())
+        {
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+};
